@@ -1,0 +1,12 @@
+.modal {
+  display: block;
+  width: auto;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.fade:not(.show) {
+  opacity: unset;
+}
