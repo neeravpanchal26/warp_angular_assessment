@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  api: "http://localhost:8000/",
+  api: "https://restcountries.com/v3.1/",
   title: "Warp Angular Assessment",
 };

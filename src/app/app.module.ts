@@ -12,15 +12,17 @@ import {
   HashLocationStrategy,
   LocationStrategy,
 } from "@angular/common";
-import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { LoaderInterceptor } from "./utils/loader-interceptor.service";
 import { LoaderService } from "./utils/loader.service";
 import { MaterialModule } from "./app.material";
-import { CountriesComponent } from './pages/countries/countries/countries.component';
+import { CountriesComponent } from "./pages/countries/countries/countries.component";
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
-  declarations: [AppComponent, routingComponents, CountriesComponent],
+  declarations: [AppComponent, routingComponents, CountriesComponent, CardComponent],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

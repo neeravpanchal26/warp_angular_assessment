@@ -1,0 +1,7 @@
+.icon{
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    z-index: 9999;
+    padding: 16px;
+}

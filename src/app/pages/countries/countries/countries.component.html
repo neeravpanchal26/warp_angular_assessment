@@ -1,1 +1,11 @@
-<app-navbar></app-navbar>
+<app-navbar>
+  <div class="container">
+    <h1>Countries</h1>
+    <mat-divider></mat-divider>
+    <mat-grid-list cols="4">
+      <mat-grid-tile *ngFor="let country of countries">
+        <app-card [country]="country" class="card"></app-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</app-navbar>

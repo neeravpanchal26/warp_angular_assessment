@@ -8,6 +8,7 @@ import {
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { LoaderService } from "./loader.service";
+import { Router } from "@angular/router";
 
 @Injectable()
 export class LoaderInterceptor implements HttpInterceptor {
@@ -38,7 +39,8 @@ export class LoaderInterceptor implements HttpInterceptor {
           }
         },
         (err) => {
-          console.log(err);
+          this.removeRequest(req);
+          observer.error(err);
         },
         () => {
           this.removeRequest(req);
