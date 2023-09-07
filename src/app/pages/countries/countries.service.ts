@@ -5,11 +5,12 @@ import { HttpRequestsService } from "src/app/utils/http-requests.service";
   providedIn: "root",
 })
 export class CountriesService {
-  private basePath = "";
-
   constructor(private httpService: HttpRequestsService) {}
 
   getCountries() {
-    return this.httpService.get(this.basePath + "independent?status=true");
+    return this.httpService.get("independent?status=true");
+  }
+  getCountriesByRegion(region: any) {
+    return this.httpService.get("region/" + region);
   }
 }

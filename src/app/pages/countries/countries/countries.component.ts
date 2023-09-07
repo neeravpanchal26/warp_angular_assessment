@@ -8,11 +8,33 @@ import { CountriesService } from "../countries.service";
 })
 export class CountriesComponent {
   public countries: any;
+  public regions: any;
   constructor(private countriesService: CountriesService) {}
 
   ngOnInit(): void {
-    this.countriesService.getCountries().subscribe((data) => {
-      this.countries = data;
+    this.countriesService.getCountries().subscribe({
+      next: (data) => {
+        this.countries = data;
+      },
+      complete: () => {
+        this.setupRegions();
+      },
+    });
+  }
+
+  setupRegions(): void {
+    let tempRegion: any = [];
+    this.countries.map((data: any) => {
+      tempRegion.push(data.region);
+    });
+    this.regions = [...new Set(tempRegion)];
+  }
+
+  filterByRegion(e: any): void {
+    this.countriesService.getCountriesByRegion(e).subscribe({
+      next: (data) => {
+        this.countries = data;
+      },
     });
   }
 }

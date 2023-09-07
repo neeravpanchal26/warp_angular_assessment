@@ -1,6 +1,16 @@
 <app-navbar>
   <div class="container">
-    <h1>Countries</h1>
+    <div class="header">
+      <h1>Countries</h1>
+      <mat-form-field appearance="outline">
+        <mat-label>Filter by region</mat-label>
+        <mat-select (selectionChange)="filterByRegion($event.value)">
+          <mat-option *ngFor="let region of regions" [value]="region">{{
+            region
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
     <mat-divider></mat-divider>
     <mat-grid-list cols="4">
       <mat-grid-tile *ngFor="let country of countries">

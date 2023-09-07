@@ -3,3 +3,11 @@
     height: 100%;
     margin: 8px;
 }
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin: 16px 0px;
+}
+mat-divider{
+    margin: 16px 0px;
+}
