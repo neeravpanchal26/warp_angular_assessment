@@ -7,8 +7,10 @@ import { CountriesService } from "../countries.service";
   styleUrls: ["./countries.component.css"],
 })
 export class CountriesComponent {
+  public originalCountries: any;
   public countries: any;
   public regions: any;
+
   constructor(private countriesService: CountriesService) {}
 
   ngOnInit(): void {
@@ -17,6 +19,7 @@ export class CountriesComponent {
         this.countries = data;
       },
       complete: () => {
+        this.originalCountries = JSON.stringify(this.countries);
         this.setupRegions();
       },
     });
@@ -30,11 +33,24 @@ export class CountriesComponent {
     this.regions = [...new Set(tempRegion)];
   }
 
-  filterByRegion(e: any): void {
+  filterByRegion = (e: any): void => {
     this.countriesService.getCountriesByRegion(e).subscribe({
       next: (data) => {
         this.countries = data;
       },
     });
-  }
+  };
+
+  searchByNameOrFifa = (e: any): void => {
+    let searchValue = e.target.value;
+    const foundCountry = this.countries.filter(
+      (country: any) =>
+        country.name.common === searchValue || country.fifa === searchValue
+    );
+    if (searchValue === "" || foundCountry.length === 0) {
+      this.countries = JSON.parse(this.originalCountries);
+    } else {
+      this.countries = foundCountry;
+    }
+  };
 }

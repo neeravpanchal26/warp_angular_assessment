@@ -16,12 +16,12 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { LoaderInterceptor } from "./utils/loader-interceptor.service";
 import { LoaderService } from "./utils/loader.service";
 import { MaterialModule } from "./app.material";
-import { CountriesComponent } from "./pages/countries/countries/countries.component";
-import { CardComponent } from './components/card/card.component';
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
-  declarations: [AppComponent, routingComponents, CountriesComponent, CardComponent],
+  declarations: [AppComponent, routingComponents],
   imports: [
+    FormsModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,

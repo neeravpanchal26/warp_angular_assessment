@@ -2,16 +2,20 @@
   <div class="container">
     <div class="header">
       <h1>Countries</h1>
-      <mat-form-field appearance="outline">
-        <mat-label>Filter by region</mat-label>
-        <mat-select (selectionChange)="filterByRegion($event.value)">
-          <mat-option *ngFor="let region of regions" [value]="region">{{
-            region
-          }}</mat-option>
-        </mat-select>
-      </mat-form-field>
+      <app-select
+        [appearance]="'outline'"
+        [label]="'Filter by region'"
+        [action]="filterByRegion"
+        [options]="regions"
+      ></app-select>
     </div>
-    <mat-divider></mat-divider>
+    <app-input
+      [appearance]="''"
+      [label]="'Search'"
+      [type]="'text'"
+      [placeholder]="'Search country by common name or FIFA code.'"
+      [action]="searchByNameOrFifa"
+    ></app-input>
     <mat-grid-list cols="4">
       <mat-grid-tile *ngFor="let country of countries">
         <app-card [country]="country" class="card"></app-card>
