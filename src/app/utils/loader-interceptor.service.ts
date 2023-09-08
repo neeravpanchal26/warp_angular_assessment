@@ -8,7 +8,6 @@ import {
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { LoaderService } from "./loader.service";
-import { Router } from "@angular/router";
 
 @Injectable()
 export class LoaderInterceptor implements HttpInterceptor {
@@ -47,7 +46,6 @@ export class LoaderInterceptor implements HttpInterceptor {
           observer.complete();
         }
       );
-      // remove request from queue when cancelled
       return () => {
         this.removeRequest(req);
         subscription.unsubscribe();

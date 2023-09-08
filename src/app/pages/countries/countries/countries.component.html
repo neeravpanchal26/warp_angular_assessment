@@ -7,7 +7,8 @@
         [label]="'Filter by region'"
         [action]="filterByRegion"
         [options]="regions"
-      ></app-select>
+      >
+      </app-select>
     </div>
     <app-input
       [appearance]="''"
@@ -16,6 +17,14 @@
       [placeholder]="'Search country by common name or FIFA code.'"
       [action]="searchByNameOrFifa"
     ></app-input>
+    <button
+      mat-flat-button
+      color="accent"
+      [disabled]="favorites.length == 0"
+      (click)="saveFavourite()"
+    >
+      Save favourites
+    </button>
     <mat-grid-list cols="4">
       <mat-grid-tile *ngFor="let country of countries">
         <app-card

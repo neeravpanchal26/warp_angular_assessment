@@ -5,12 +5,13 @@
       mat-card-image
       [src]="country.flags.png"
       [alt]="country.flags.alt"
-      width="100%"
+      class="flagImage"
     />
     <input
       class="favorite"
       type="checkbox"
       [value]="country.name.common"
+      [checked]="country.checked"
       (change)="actionFavorites($event.target)"
     />
   </mat-card-content>

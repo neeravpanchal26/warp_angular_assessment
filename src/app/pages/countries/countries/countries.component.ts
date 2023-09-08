@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 import { CountriesService } from "../countries.service";
+import { SnackbarService } from "src/app/utils/snackbar.service";
+import { FavoritesService } from "../favourites.service";
 
 @Component({
   selector: "app-countries",
@@ -12,7 +14,11 @@ export class CountriesComponent {
   public regions: any;
   public favorites: any = [];
 
-  constructor(private countriesService: CountriesService) {}
+  constructor(
+    private countriesService: CountriesService,
+    private snackBar: SnackbarService,
+    private favoritesService: FavoritesService
+  ) {}
 
   ngOnInit(): void {
     this.countriesService.getCountries().subscribe({
@@ -22,6 +28,14 @@ export class CountriesComponent {
       complete: () => {
         this.originalCountries = JSON.stringify(this.countries);
         this.setupRegions();
+        this.favorites = this.favoritesService.getFavorites();
+        this.favorites.map((item: any) => {
+          this.countries.map((country: any) => {
+            if (country.name.common === item[0].name.common) {
+              country.checked = true;
+            }
+          });
+        });
       },
     });
   }
@@ -64,6 +78,9 @@ export class CountriesComponent {
           (country: any) => country.name.common === selectedValue
         )
       );
+      this.snackBar.showSnackbar(
+        selectedValue + " added to your favourite list!"
+      );
     } else {
       const indexToRemove = this.favorites.findIndex(
         (favorite: any) => favorite[0].name.common === selectedValue
@@ -71,6 +88,14 @@ export class CountriesComponent {
       if (indexToRemove !== -1) {
         this.favorites.splice(indexToRemove, 1);
       }
+      this.snackBar.showSnackbar(
+        selectedValue + " removed from your favourite list!"
+      );
     }
+  };
+
+  saveFavourite = (): void => {
+    this.favoritesService.saveFavorites(this.favorites);
+    this.snackBar.showSnackbar("Favourite list saved/updated.");
   };
 }
