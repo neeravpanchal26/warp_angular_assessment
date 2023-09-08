@@ -7,5 +7,11 @@
       [alt]="country.flags.alt"
       width="100%"
     />
+    <input
+      class="favorite"
+      type="checkbox"
+      [value]="country.name.common"
+      (change)="actionFavorites($event.target)"
+    />
   </mat-card-content>
 </mat-card>

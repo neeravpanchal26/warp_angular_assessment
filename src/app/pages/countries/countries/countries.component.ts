@@ -10,6 +10,7 @@ export class CountriesComponent {
   public originalCountries: any;
   public countries: any;
   public regions: any;
+  public favorites: any = [];
 
   constructor(private countriesService: CountriesService) {}
 
@@ -51,6 +52,25 @@ export class CountriesComponent {
       this.countries = JSON.parse(this.originalCountries);
     } else {
       this.countries = foundCountry;
+    }
+  };
+
+  chooseFavourite = (e: any): void => {
+    let selected = e.checked;
+    let selectedValue = e.value;
+    if (selected) {
+      this.favorites.push(
+        this.countries.filter(
+          (country: any) => country.name.common === selectedValue
+        )
+      );
+    } else {
+      const indexToRemove = this.favorites.findIndex(
+        (favorite: any) => favorite[0].name.common === selectedValue
+      );
+      if (indexToRemove !== -1) {
+        this.favorites.splice(indexToRemove, 1);
+      }
     }
   };
 }

@@ -7,6 +7,7 @@ import { Component, Input } from "@angular/core";
 })
 export class CardComponent {
   @Input() country: any;
+  @Input() actionFavorites: any;
 
   ngOnInit(): void {}
 }

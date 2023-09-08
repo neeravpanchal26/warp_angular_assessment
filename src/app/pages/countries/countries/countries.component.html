@@ -18,7 +18,11 @@
     ></app-input>
     <mat-grid-list cols="4">
       <mat-grid-tile *ngFor="let country of countries">
-        <app-card [country]="country" class="card"></app-card>
+        <app-card
+          class="card"
+          [country]="country"
+          [actionFavorites]="chooseFavourite"
+        ></app-card>
       </mat-grid-tile>
     </mat-grid-list>
   </div>
