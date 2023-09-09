@@ -2,6 +2,8 @@ import { Component } from "@angular/core";
 import { CountriesService } from "../countries.service";
 import { SnackbarService } from "src/app/utils/snackbar.service";
 import { FavoritesService } from "../favourites.service";
+import { MatDialog } from "@angular/material/dialog";
+import { DialogComponent } from "src/app/components/dialog/dialog.component";
 
 @Component({
   selector: "app-countries",
@@ -17,7 +19,8 @@ export class CountriesComponent {
   constructor(
     private countriesService: CountriesService,
     private snackBar: SnackbarService,
-    private favoritesService: FavoritesService
+    private favoritesService: FavoritesService,
+    private countryDialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -97,5 +100,11 @@ export class CountriesComponent {
   saveFavourite = (): void => {
     this.favoritesService.saveFavorites(this.favorites);
     this.snackBar.showSnackbar("Favourite list saved/updated.");
+  };
+
+  openDialog = (country: any): void => {
+    this.countryDialog.open(DialogComponent, {
+      data: { country: country },
+    });
   };
 }

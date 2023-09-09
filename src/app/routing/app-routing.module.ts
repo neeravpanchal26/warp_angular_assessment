@@ -6,6 +6,7 @@ import { LoaderComponent } from "../components/loader/loader.component";
 import { CardComponent } from "../components/card/card.component";
 import { SelectComponent } from "../components/select/select.component";
 import { InputComponent } from "../components/input/input.component";
+import { DialogComponent } from "../components/dialog/dialog.component";
 
 // Routing Array
 const routes: Routes = [{ path: "", component: CountriesComponent }];
@@ -23,4 +24,5 @@ export const routingComponents = [
   CardComponent,
   SelectComponent,
   InputComponent,
+  DialogComponent,
 ];

@@ -1,0 +1,56 @@
+<h2 mat-dialog-title>
+  <mat-icon
+    [style]="
+      country.checked
+        ? 'color: var(--mdc-checkbox-selected-focus-icon-color);'
+        : '-webkit-text-stroke-width: 1px;-webkit-text-stroke-color: var(--mdc-checkbox-selected-focus-icon-color);color:white;'
+    "
+    >favorite</mat-icon
+  >
+  {{ country.name.common }}
+</h2>
+<mat-dialog-content class="mat-typography">
+  <p><strong>Common Name: </strong>{{ country.name.common }}</p>
+  <p><strong>Region: </strong>{{ country.region }}</p>
+  <p><strong>Fifa code: </strong>{{ country.fifa }}</p>
+  <p>
+    <strong>Population: </strong
+    >{{ country.population | number : "1.2-2" : "en-ZA" }}
+  </p>
+  <p>
+    <strong>Country local time and time zone: </strong>
+    {{ country.localDateTime }}
+    <b>&</b>
+    {{ country.timezones[0] }}
+  </p>
+  <p><strong>Capital city: </strong>{{ country.capital[0] }}</p>
+  <strong>A list of their currencies: </strong>
+  <ul>
+    <li *ngFor="let language of country.languages | keyvalue">
+      {{ language.key }}: {{ language.value }}
+    </li>
+  </ul>
+  <p>
+    <a
+      mat-button
+      color="primary"
+      *ngIf="country.maps.googleMaps"
+      [href]="country.maps.googleMaps"
+    >
+      Google Maps
+      <mat-icon>link</mat-icon>
+    </a>
+    <a
+      mat-button
+      color="primary"
+      *ngIf="country.maps.openStreetMaps"
+      [href]="country.maps.openStreetMaps"
+    >
+      Open Street Maps
+      <mat-icon>link</mat-icon>
+    </a>
+  </p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

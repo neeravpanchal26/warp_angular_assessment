@@ -17,12 +17,7 @@
       [placeholder]="'Search country by common name or FIFA code.'"
       [action]="searchByNameOrFifa"
     ></app-input>
-    <button
-      mat-flat-button
-      color="accent"
-      [disabled]="favorites.length == 0"
-      (click)="saveFavourite()"
-    >
+    <button mat-flat-button color="accent" (click)="saveFavourite()">
       Save favourites
     </button>
     <mat-grid-list cols="4">
@@ -31,6 +26,7 @@
           class="card"
           [country]="country"
           [actionFavorites]="chooseFavourite"
+          [actionDialog]="openDialog"
         ></app-card>
       </mat-grid-tile>
     </mat-grid-list>
