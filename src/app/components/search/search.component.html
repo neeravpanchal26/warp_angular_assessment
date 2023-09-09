@@ -1,0 +1,9 @@
+<mat-form-field [appearance]="appearance">
+  <mat-label>{{ label }}</mat-label>
+  <input
+    matInput
+    [type]="type"
+    [placeholder]="placeholder"
+    (keyup)="action($event)"
+  />
+</mat-form-field>

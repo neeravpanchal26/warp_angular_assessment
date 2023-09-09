@@ -16,15 +16,18 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { LoaderInterceptor } from "./utils/loader-interceptor.service";
 import { LoaderService } from "./utils/loader.service";
 import { MaterialModule } from "./app.material";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { TextAreaComponent } from './components/text-area/text-area.component';
 
 @NgModule({
-  declarations: [AppComponent, routingComponents],
+  declarations: [AppComponent, routingComponents, TextAreaComponent],
   imports: [
     FormsModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
   ],

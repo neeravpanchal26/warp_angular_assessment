@@ -1,11 +1,10 @@
 <mat-form-field [appearance]="appearance" [formGroup]="formGroup">
   <mat-label>{{ label }}</mat-label>
-  <input
+  <textarea
     matInput
     [placeholder]="placeholder"
-    [type]="type"
     [formControlName]="formcontrolname"
-  />
+  ></textarea>
   <mat-error *ngIf="formGroup.controls[formcontrolname].hasError('required')">
     {{ label }} is required.
   </mat-error>

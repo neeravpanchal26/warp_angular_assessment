@@ -5,11 +5,18 @@ import { CountriesComponent } from "../pages/countries/countries/countries.compo
 import { LoaderComponent } from "../components/loader/loader.component";
 import { CardComponent } from "../components/card/card.component";
 import { SelectComponent } from "../components/select/select.component";
-import { InputComponent } from "../components/input/input.component";
+import { SearchComponent } from "../components/search/search.component";
 import { DialogComponent } from "../components/dialog/dialog.component";
+import { FavoriteComponent } from "../pages/favorites/favorite/favorite.component";
+import { FavoriteDetailComponent } from "../pages/favorites/favorite-detail/favorite-detail.component";
+import { InputComponent } from "../components/input/input.component";
 
 // Routing Array
-const routes: Routes = [{ path: "", component: CountriesComponent }];
+const routes: Routes = [
+  { path: "", component: CountriesComponent },
+  { path: "favorite", component: FavoriteComponent },
+  { path: "favoriteDetail/:country", component: FavoriteDetailComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
@@ -23,6 +30,9 @@ export const routingComponents = [
   CountriesComponent,
   CardComponent,
   SelectComponent,
-  InputComponent,
+  SearchComponent,
   DialogComponent,
+  FavoriteComponent,
+  FavoriteDetailComponent,
+  InputComponent,
 ];

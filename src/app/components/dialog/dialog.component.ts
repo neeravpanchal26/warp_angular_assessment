@@ -22,6 +22,5 @@ export class DialogComponent {
       "yyyy-MM-ddTHH:mm:ss",
       this.country.timezones[0]
     );
-    console.log(this.country);
   }
 }

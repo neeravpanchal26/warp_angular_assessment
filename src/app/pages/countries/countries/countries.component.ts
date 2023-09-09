@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { CountriesService } from "../countries.service";
 import { SnackbarService } from "src/app/utils/snackbar.service";
-import { FavoritesService } from "../favourites.service";
+import { FavoritesService } from "../../favorites/favourites.service";
 import { MatDialog } from "@angular/material/dialog";
 import { DialogComponent } from "src/app/components/dialog/dialog.component";
 

@@ -7,7 +7,17 @@
     [opened]="false"
   >
     <mat-toolbar color="primary" class="mat-elevation-z1">Menu</mat-toolbar>
-    <mat-nav-list> </mat-nav-list>
+    <mat-nav-list>
+      <button mat-flat-button color="accent" routerLink="/">
+        <mat-icon>home</mat-icon>
+        Home
+      </button>
+      <span class="spacer"></span>
+      <button mat-flat-button color="accent" routerLink="/favorite">
+        <mat-icon>favorite</mat-icon>
+        Favorites
+      </button>
+    </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary" class="mat-elevation-z1">
@@ -20,7 +30,18 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+      <img
+        src="/assets/68747470733a2f2f7777772e77617270646576656c6f706d656e742e636f6d2f4170705f5468656d65732f57617270446576656c6f706d656e742f496d616765732f636f72652f776172702d6c6f676f2d77686974652e737667.svg"
+        height="50%"
+      />
       <span>{{ title }}</span>
+      <span class="spacer"></span>
+      <button mat-icon-button routerLink="/">
+        <mat-icon>home</mat-icon>
+      </button>
+      <button mat-icon-button routerLink="/favorite">
+        <mat-icon>favorite</mat-icon>
+      </button>
     </mat-toolbar>
     <ng-content></ng-content>
   </mat-sidenav-content>

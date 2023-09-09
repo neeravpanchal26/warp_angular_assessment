@@ -10,15 +10,15 @@
       >
       </app-select>
     </div>
-    <app-input
+    <app-search
       [appearance]="''"
       [label]="'Search'"
       [type]="'text'"
       [placeholder]="'Search country by common name or FIFA code.'"
       [action]="searchByNameOrFifa"
-    ></app-input>
+    ></app-search>
     <button mat-flat-button color="accent" (click)="saveFavourite()">
-      Save favourites
+      Save favorites
     </button>
     <mat-grid-list cols="4">
       <mat-grid-tile *ngFor="let country of countries">
