@@ -1,85 +1,83 @@
-<app-navbar>
-  <div class="container">
-    <div class="header">
-      <h1>{{ favorite.name.common }}</h1>
-    </div>
-    <mat-divider></mat-divider>
-    <p><strong>Common Name: </strong>{{ favorite.name.common }}</p>
-    <p><strong>Region: </strong>{{ favorite.region }}</p>
-    <p><strong>Fifa code: </strong>{{ favorite.fifa }}</p>
-    <p>
-      <strong>Population: </strong
-      >{{ favorite.population | number : "1.2-2" : "en-ZA" }}
-    </p>
-    <p>
-      <strong>favorite local time and time zone: </strong>
-      {{ favorite.localDateTime }}
-      <b>&</b>
-      {{ favorite.timezones[0] }}
-    </p>
-    <p><strong>Capital city: </strong>{{ favorite.capital[0] }}</p>
-    <strong>A list of their currencies: </strong>
-    <ul>
-      <li *ngFor="let language of favorite.languages | keyvalue">
-        {{ language.key }}: {{ language.value }}
-      </li>
-    </ul>
-    <p>
-      <a
-        mat-button
-        color="primary"
-        *ngIf="favorite.maps.googleMaps"
-        [href]="favorite.maps.googleMaps"
-      >
-        Google Maps
-        <mat-icon>link</mat-icon>
-      </a>
-      <a
-        mat-button
-        color="primary"
-        *ngIf="favorite.maps.openStreetMaps"
-        [href]="favorite.maps.openStreetMaps"
-      >
-        Open Street Maps
-        <mat-icon>link</mat-icon>
-      </a>
-    </p>
-    <p><strong>Comments:</strong></p>
-    <form (ngSubmit)="saveComment(commentForm)" [formGroup]="commentForm">
-      <app-input
-        [formGroup]="commentForm"
-        [appearance]="'outline'"
-        [label]="'Google images URL'"
-        [placeholder]="'Google images URL'"
-        [type]="'text'"
-        [formcontrolname]="'pictureUrl'"
-      ></app-input>
-      <br />
-      <app-text-area
-        [formGroup]="commentForm"
-        [appearance]="'outline'"
-        [label]="'Comment'"
-        [placeholder]="'Comment'"
-        [formcontrolname]="'comment'"
-      >
-      </app-text-area>
-      <div>
-        <button mat-raised-button color="primary" type="submit">Save</button>
-      </div>
-    </form>
-    <br />
-    <div *ngFor="let comment of favorite.comments">
-      <mat-card class="example-card">
-        <mat-card-header>
-          <img mat-card-avatar [src]="comment.pictureUrl" />
-        </mat-card-header>
-        <mat-card-content>
-          <p>{{ comment.comment }}</p>
-          <mat-divider></mat-divider>
-          <i>{{ comment.timestamp }}</i>
-        </mat-card-content>
-      </mat-card>
-      <br />
-    </div>
+<div class="container">
+  <div class="header">
+    <h1>{{ favorite.name.common }}</h1>
   </div>
-</app-navbar>
+  <mat-divider></mat-divider>
+  <p><strong>Common Name: </strong>{{ favorite.name.common }}</p>
+  <p><strong>Region: </strong>{{ favorite.region }}</p>
+  <p><strong>Fifa code: </strong>{{ favorite.fifa }}</p>
+  <p>
+    <strong>Population: </strong
+    >{{ favorite.population | number : "1.2-2" : "en-ZA" }}
+  </p>
+  <p>
+    <strong>favorite local time and time zone: </strong>
+    {{ favorite.localDateTime }}
+    <b>&</b>
+    {{ favorite.timezones[0] }}
+  </p>
+  <p><strong>Capital city: </strong>{{ favorite.capital[0] }}</p>
+  <strong>A list of their currencies: </strong>
+  <ul>
+    <li *ngFor="let language of favorite.languages | keyvalue">
+      {{ language.key }}: {{ language.value }}
+    </li>
+  </ul>
+  <p>
+    <a
+      mat-button
+      color="primary"
+      *ngIf="favorite.maps.googleMaps"
+      [href]="favorite.maps.googleMaps"
+    >
+      Google Maps
+      <mat-icon>link</mat-icon>
+    </a>
+    <a
+      mat-button
+      color="primary"
+      *ngIf="favorite.maps.openStreetMaps"
+      [href]="favorite.maps.openStreetMaps"
+    >
+      Open Street Maps
+      <mat-icon>link</mat-icon>
+    </a>
+  </p>
+  <p><strong>Comments:</strong></p>
+  <form (ngSubmit)="saveComment(commentForm)" [formGroup]="commentForm">
+    <app-input
+      [formGroup]="commentForm"
+      [appearance]="'outline'"
+      [label]="'Google images URL'"
+      [placeholder]="'Google images URL'"
+      [type]="'text'"
+      [formcontrolname]="'pictureUrl'"
+    ></app-input>
+    <br />
+    <app-text-area
+      [formGroup]="commentForm"
+      [appearance]="'outline'"
+      [label]="'Comment'"
+      [placeholder]="'Comment'"
+      [formcontrolname]="'comment'"
+    >
+    </app-text-area>
+    <div>
+      <button mat-raised-button color="primary" type="submit">Save</button>
+    </div>
+  </form>
+  <br />
+  <div *ngFor="let comment of favorite.comments">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <img mat-card-avatar [src]="comment.pictureUrl" />
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ comment.comment }}</p>
+        <mat-divider></mat-divider>
+        <i>{{ comment.timestamp }}</i>
+      </mat-card-content>
+    </mat-card>
+    <br />
+  </div>
+</div>

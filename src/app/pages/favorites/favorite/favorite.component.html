@@ -1,26 +1,24 @@
-<app-navbar>
-  <div class="container">
-    <div class="header">
-      <h1>Favorites</h1>
-    </div>
-    <mat-divider></mat-divider>
-    <mat-list role="list">
-      <div *ngFor="let favorite of favorites">
-        <mat-list-item
-          role="listitem"
-          routerLink="/favoriteDetail/{{ favorite[0].name.common }}"
-        >
-          <button
-            mat-flat-button
-            color="warn"
-            (click)="removeFavorite(favorite[0].name.common)"
-          >
-            <mat-icon>delete</mat-icon>Remove
-          </button>
-          {{ favorite[0].name.common }}
-        </mat-list-item>
-        <mat-divider></mat-divider>
-      </div>
-    </mat-list>
+<div class="container">
+  <div class="header">
+    <h1>Favorites</h1>
   </div>
-</app-navbar>
+  <mat-divider></mat-divider>
+  <mat-list role="list">
+    <div *ngFor="let favorite of favorites">
+      <mat-list-item
+        role="listitem"
+        routerLink="/favorite/favoriteDetail/{{ favorite[0].name.common }}"
+      >
+        <button
+          mat-flat-button
+          color="warn"
+          (click)="removeFavorite(favorite[0].name.common)"
+        >
+          <mat-icon>delete</mat-icon>Remove
+        </button>
+        {{ favorite[0].name.common }}
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </div>
+  </mat-list>
+</div>
