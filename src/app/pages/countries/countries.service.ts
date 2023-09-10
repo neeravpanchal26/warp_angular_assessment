@@ -8,7 +8,7 @@ export class CountriesService {
   constructor(private httpService: HttpRequestsService) {}
 
   getCountries() {
-    return this.httpService.get("independent?status=true");
+    return this.httpService.get("all");
   }
   getCountriesByRegion(region: any) {
     return this.httpService.get("region/" + region);
