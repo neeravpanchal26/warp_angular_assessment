@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { LoaderComponent } from "../components/loader/loader.component";
-import { NavbarComponent } from "../components/navbar/navbar.component";
+import { NavbarComponent } from "./components/navbar/navbar.component";
 
 // Routing Array
 const routes: Routes = [
@@ -27,4 +26,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule {}
 
-export const routingComponents = [NavbarComponent, LoaderComponent];
+export const routingComponents = [NavbarComponent];
