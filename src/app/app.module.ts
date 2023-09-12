@@ -9,9 +9,7 @@ import {
   HashLocationStrategy,
   LocationStrategy,
 } from "@angular/common";
-import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
-import { LoaderInterceptor } from "./utils/loader-interceptor.service";
-import { LoaderService } from "./utils/loader.service";
+import { HttpClientModule } from "@angular/common/http";
 import { MaterialModule } from "./app.material";
 
 @NgModule({
@@ -26,8 +24,6 @@ import { MaterialModule } from "./app.material";
   providers: [
     DatePipe,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    LoaderService,
-    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })
